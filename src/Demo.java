@@ -30,9 +30,33 @@ public class Demo {
 	}
 	
 	public static void main(String[] args) throws IOException {
+		
+		ImagesComparator comparator = new ImagesComparator();
+		
+/*		int[][] result = comparator.makePixels(firstImage);
 
-		double colorPerc = new ImagesComparator().colorDifferencePercentage(firstImage, secondImage);
-		System.out.println(colorPerc);
+		int[][] result2 = comparator.makePixels(secondImage);
+
+		if (result.length != result2.length) {
+			throw new RuntimeException("Object are not the same size!");
+		}
+		
+		double perc = comparator.similarityPercentage(firstImage, secondImage);
+		System.out.format("%.2f%n", perc);
+		
+*/
+
+		/*comparator.findPoints(result, result2);
+		
+		comparator.highlightArea(secondImage);
+
+		File out = new File(OUTPUT_PATH);
+		ImageIO.write(secondImage, "jpg", out);*/
+
+		double colorPerc = comparator.colorDifferencePercentage(firstImage, secondImage);
 		System.out.format("These images differ by %.3f %%", colorPerc);
+		
+		double diffPerc = comparator.differencePercentage(firstImage, secondImage);
+		System.out.format("These images differ by %.3f %%", diffPerc);
 	}
 }
